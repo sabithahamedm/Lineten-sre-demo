@@ -9,6 +9,7 @@ terraform {
 
 
 provider "google" {
+  credentials = "C:/Users/misir/invoker.json"
   project = var.project_id
   region  = var.region
 }
@@ -48,12 +49,18 @@ traffic {
   autogenerate_revision_name = true
 }
 
-resource "google_cloud_run_iam_member" "invoker"{
-location  = google_cloud_run_service.location
-service   = google_cloud_run_service.service.name
-roel      = "roles/run.invoker"
-member    = "allUsers"  #public users
+resource "google_cloud_run_service_iam_policy" "public" {
+  location = var.region
+  service  = google_cloud_run_service.service.name
 
+  policy_data = data.google_iam_policy.noauth.policy_data
+}
+
+data "google_iam_policy" "noauth" {
+  binding {
+    role = "roles/run.invoker"
+    members = ["allUsers"]
+  }
 }
 
 output "service_url"{
