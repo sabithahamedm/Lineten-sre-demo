@@ -1,7 +1,7 @@
 terraform {
  required_providers {
   google = {
-   source = "hashicopr/google"
+   source = "hashicorp/google"
    version = ">=4.0"
    }
   }
@@ -23,7 +23,7 @@ resource "google_artifact_registry_repository" "repo" {
 
 #Cloud run Service 
 
-resource "google_cloud_run_service "service" {
+resource "google_cloud_run_service" "service" {
   name      = "sre-demo-service"
   location  = var.region
 
@@ -57,5 +57,5 @@ member    = "allUsers"  #public users
 }
 
 output "service_url"{
-value- google_cloud_run_service.service.status[0].url
+value = google_cloud_run_service.service.status[0].url
 }

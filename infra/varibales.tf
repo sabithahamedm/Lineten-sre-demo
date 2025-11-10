@@ -1,6 +1,6 @@
-variable "project_id {}
-variable "region{
+variable "project_id" {}
+variable "region" {
 
- default = "us-central1
+ default = "us-central1"
   }
 variable "container_image" {}
