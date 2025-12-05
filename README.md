@@ -1,6 +1,6 @@
 # Lineten SRE Demo Project
 
-This project demonstrates containerizing a sample application and deploying it to **Google Cloud Run** using **Terraform** and **Google Artifact Registry**.
+This project demonstrates containerizing a sample application and deploying it to **Google Cloud Run** using **Terraform** and **Docker Hub**.
 
 ---
 
@@ -9,7 +9,7 @@ This project demonstrates containerizing a sample application and deploying it t
 **Workflow Summary:**
 
 1. **Containerize** the application using Docker.
-2. **Push** the image to Google Artifact Registry.
+2. **Push** the image to Docker hub.
 3. **Deploy** the containerized app to Cloud Run via Terraform IaC.
 
 ---
