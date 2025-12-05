@@ -14,16 +14,6 @@ provider "google" {
   region  = var.region
 }
 
-
-resource "google_artifact_registry_repository" "repo" {
-  repository_id = "sre-demo-repo"
-  format        = "DOCKER"
-  location      = var.region
-}
-
-
-#Cloud run Service 
-
 resource "google_cloud_run_service" "service" {
   name      = "sre-demo-service"
   location  = var.region
